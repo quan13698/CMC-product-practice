@@ -1,7 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const homeController = require('../Apps/Controllers/homeController');
+const watchesController = require('../Apps/Controllers/watchesController');
+const orderController = require('../Apps/Controllers/orderController');
 
-router.get('/home-page', homeController.homePage);
+//@desc Get all product 
+//@route Get /api/home-page
+//@access public
+router.get('/products', watchesController.watchesHomePage);
+//@desc Get all product 
+//@route Get /api/home-page
+//@access public
+router.get('/products/:id', watchesController.getProductById);
+
+router.post("/order", orderController.createOrder);
 
 module.exports = router;
