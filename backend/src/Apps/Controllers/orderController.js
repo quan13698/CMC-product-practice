@@ -51,7 +51,7 @@ const createOrder = async (req, res) => {
 
 const removeOrder = async (req, res) => {
   const { id:orderId } = req.params;
-  const deletedOrder = await Order.findOneAndDelete({ _id:orderId });
+  const deletedOrder = await Order.findOneAndDelete({ _id: orderId });
   if (!deletedOrder) {
     res.status(401).json({
       success: false,
