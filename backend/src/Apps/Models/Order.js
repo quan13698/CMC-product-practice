@@ -38,4 +38,4 @@ const OrderSchema = new mongoose.Schema({
   },
   cartItems: [singleCartItemSchema],
 });
-module.exports = mongoose.Model("Order", OrderSchema, "Order");
+module.exports = mongoose.model("Order", OrderSchema, "Order");
