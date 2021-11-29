@@ -37,11 +37,11 @@ const createOrder = async (req, res) => {
   }
   const total = tax + shippingFee + subtotal;
   const order = await Order.create({
-    cartItems,
     tax,
     shippingFee,
     subtotal,
     total,
+    cartItems,
   });
   return res.status(200).json({
     success: true,
@@ -50,7 +50,7 @@ const createOrder = async (req, res) => {
 };
 
 const removeOrder = async (req, res) => {
-  const { id:orderId } = req.params;
+  const orderId = req.params.id;
   const deletedOrder = await Order.findOneAndDelete({ _id: orderId });
   if (!deletedOrder) {
     res.status(401).json({
